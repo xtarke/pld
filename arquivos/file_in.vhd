@@ -6,8 +6,15 @@ architecture teste of file_in is
 begin
 
   le: process
-    type arqv_int is file of integer;
-    file arquivo_rd: arqv_int is in "dado_a.dat";
+  	
+  	type arqv_int is file of integer;
+    
+    -- VHDL '87    
+    --file arquivo_rd: arqv_int is in "dado_a.dat";
+    
+    -- VHDL '93
+    file arquivo_rd  : arqv_int open read_mode is "dado_a.dat";
+        
     variable dado_v: integer;
 
   begin
