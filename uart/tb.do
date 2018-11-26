@@ -14,7 +14,7 @@
 #******************************************************************************
 
 vlib work
-vcom testbench.vhd uart_rx.vhd uart_tx.vhd
+vcom testbench.vhd uart_rx.vhd 
 
 vsim -t ns work.testbench
 
