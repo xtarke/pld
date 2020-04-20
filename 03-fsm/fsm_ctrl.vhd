@@ -9,6 +9,7 @@ entity fsm is
 		start : in std_logic;
 		set_point: in unsigned(15 downto 0);
 		temperature: in unsigned(15 downto 0);
+		light : out std_logic;
 		motor : out std_logic
 	);
 end entity fsm;
@@ -18,7 +19,9 @@ architecture RTL of fsm is
 
 	signal state : state_type;
 begin
-
+    
+    -- Processo repsonsável apenas pela
+    -- transição de estados
 	state_transation: process(clk, rst) is
 	begin
 		if rst = '1' then
@@ -26,7 +29,7 @@ begin
 		elsif rising_edge(clk) then
 			case state is
 				when IDLE =>
-					if start = '1' then					
+					if start = '1' then
 						state <= ST_ON;
 					end if;
 				when ST_ON =>
@@ -36,7 +39,7 @@ begin
 						state <= MOTOR_ON;
 					end if;
 				when MOTOR_ON =>
-					if (start = '0') then					
+					if (start = '0') then
 						state <= IDLE;
 					elsif (temperature <= set_point) then
 						state <= ST_ON;
@@ -45,24 +48,29 @@ begin
 		end if;
 	end process;
 	
-	
---	moore: process(state)
---	begin
---		motor <= '0';					
---		case state is 
---			when IDLE =>				
---			when ST_ON =>
---			when MOTOR_ON =>
---				motor <= '1';
---		end case;
---	end process;
+	-- Saída(s) tipo Moore:
+	-- Apenas relacionadas com o estado.
+	moore: process(state)
+	begin
+		light <= '0';
 		
-	mealy_moore: process(state, start) -- Mealy needs start
+		case state is 
+			when IDLE =>
+			when ST_ON =>
+			when MOTOR_ON =>
+				light <= '1';
+		end case;
+	end process;
+    
+    
+   	-- Saída(s) tipo <ealy:
+	-- Relacionadas com o estado e com entradas
+	mealy: process(state, start) -- Mealy needs start
 	begin
 		motor <= '0';
 		
 		case state is 
-			when IDLE =>			
+			when IDLE =>
 		
 			when ST_ON =>
 		
@@ -74,10 +82,5 @@ begin
 				end if;
 				
 		end case;
-		
 	end process;
-	
-	
-	
-
 end architecture RTL;
