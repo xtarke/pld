@@ -30,7 +30,7 @@ entity de10_lite is
 		DRAM_WE_N: out std_logic;
 		
 		----------- SEG7 ------------
-		HEX0: out std_logic_vector(7 downto 0);
+		HEX0: out std_logic_vector(7 downto 0); 
 		HEX1: out std_logic_vector(7 downto 0);
 		HEX2: out std_logic_vector(7 downto 0);
 		HEX3: out std_logic_vector(7 downto 0);

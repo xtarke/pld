@@ -8,6 +8,8 @@
 
 
 vlib work
+vcom txt_util.vhdl
+vcom rom_file.vhd
 vcom file_out.vhd
 vcom file_in.vhd
 vcom files_tb.vhd
@@ -15,6 +17,13 @@ vcom files_tb.vhd
 vsim -t ns work.files_tb
 
 view wave
-add wave -radix dec /dado
+add wave /clk
+add wave -radix dec /counter
+add wave -height 15 -divider "Dados lidos do arquivo"
+add wave -radix dec /file_in_data
+add wave -height 15 -divider "Dados da ROM carregados externamente"
+add wave -radix hex /rom_data
 
-run 50 ns
+run 200 ns
+
+wave zoomfull

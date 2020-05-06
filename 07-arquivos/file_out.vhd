@@ -14,10 +14,10 @@ begin
 		-- file arquivo_wr : arqv_int is out "dado_a.dat";
 		
 		-- VHDL '93
-		file arquivo_wr  : arqv_int open write_mode is "dado_a.dat";	
+		file arquivo_wr  : arqv_int open write_mode is "dado_a.dat";
 		
 	begin   
-	    for dado in 48 to 57 loop
+	    for dado in 0 to 15 loop
 			write (arquivo_wr, dado);
 		end loop;
 		wait;
