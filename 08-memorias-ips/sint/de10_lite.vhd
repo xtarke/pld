@@ -89,7 +89,7 @@ begin
 		port map(
 			inclk0 => ADC_CLK_10,
 			c0     => clk_slow,
-			c1	=> clk_fast
+			c1     => clk_fast
 		);
 		
 	-- counter reset
