@@ -1,6 +1,6 @@
-# Quartus/Modelsim install (Debian)
+# Quartus/Modelsim install (Debian e OpenSuse)
 
-- Instalar bibliotecas 32-bit:
+- Instalar bibliotecas 32-bit (Debian):
 
 ```bash
 sudo dpkg --add-architecture i386
@@ -8,7 +8,11 @@ sudo apt-get update
 sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 libx11-6:i386 libxext6:i386 libxrender1:i386
 ```
 
-- Instalar [libpng12-0 xyz amd64.deb](https://packages.debian.org/pt-br/jessie/amd64/libpng12-0/download)
+- Instalar bibliotecas 32-bit (OpenSuse):
+
+```bash
+sudo zypper install libX11-6-32bit libXext6-32bit libXft2-32bit libXrender1-32bit libncurses5-32bit
+```
 
 - Modelsim:
 
@@ -20,10 +24,14 @@ sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 libx11-6:i386 l
         +--- lib32
     ```
 
-    - Extrair as bibliotecas freetype6 em lib32 (sugiro verificar se há correções de segurança).
-  
+    - Extrair as bibliotecas seguinte em lib32 (sugiro verificar se há correções de segurança).
+
+    ```bash
+    libfontconfig.so.1  libfontconfig.so.1.10.1  libfreetype.so.6  libfreetype.so.6.8.1  libXft.so.2  libXft.so.2.3.2    
+    ```
+
   - Alterar __modelsim_ase/bin/vsim__:
-  
+
     de:
 
     ```bash
@@ -35,11 +43,11 @@ sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 libx11-6:i386 l
     ```bash
     dir=`dirname "$arg0"` export LD_LIBRARY_PATH=<dir lib32 criado>/intelFPGA/lib32
     ```
-  
+
   - Alterar __/modelsim_ase/bin/vco__ (linha 206)
-  
+
     de:
-  
+
     ```bash
     vco="linux_rh60" ;;
     ```
