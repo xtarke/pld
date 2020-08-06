@@ -24,7 +24,7 @@ sudo zypper install libX11-6-32bit libXext6-32bit libXft2-32bit libXrender1-32bi
         +--- lib32
     ```
 
-    - Extrair as bibliotecas seguinte em lib32 (sugiro verificar se há correções de segurança).
+  - Extrair as bibliotecas seguintes em lib32 (sugiro verificar se há correções de segurança).
 
     ```bash
     libfontconfig.so.1  libfontconfig.so.1.10.1  libfreetype.so.6  libfreetype.so.6.8.1  libXft.so.2  libXft.so.2.3.2    
