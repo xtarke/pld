@@ -43,12 +43,13 @@
     - Video aula: Subprogramas em VHDL (17m)
     - Vídeo aula: VHDL tipos customizados (26m)
   - Slides: VHDL: Arquivos
-    - Vídeo aula 06: uso de arquivos externos em VHDL (22m)
+    - Vídeo aula: uso de arquivos externos em VHDL (22m)
 
 - Tópico 8:
   - Slides: Softcores e IPs
-    - Vídeo aula 07 - Componentes IP (42m)
-  - Vídeo aula 08 - Softcore Nios (47m)
+    - Vídeo aula  - Componentes IP (42m)
+  - Vídeo aula - Softcore Nios (47m)
+  - Vídeo aula - Analisador lógico SignalTap (10m)
 
 - Tópico 9:
   - Tarefa 11: procedimentos e funções
@@ -57,7 +58,7 @@
   - Tarefa 14: animação (FSM)
 
 - Trabalho final
-  - Vídeo aula 09 - Softcore RISCV (tutorial) (33m)
+  - Vídeo aula - Softcore RISCV (tutorial) (33m)
 
 ## Avaliações
 

@@ -57,6 +57,12 @@ sudo zypper install libX11-6-32bit libXext6-32bit libXft2-32bit libXrender1-32bi
     ```bash
     vco="linux" ;;
     ```
+    
+## Permissão para gravação do blaster
+
+https://github.com/arthurmteodoro/install-quartus-linux
+    
+    
 
 ## Referências
 
