@@ -74,9 +74,9 @@ package body fila is
 	function fila_vazia(fila : fila_t) return boolean is	
 	begin
 		if fila.tamanho = 0 then
-			return false;
-		else 
 			return true;
+		else 
+			return false;
 		end if;
 	end function fila_vazia;
 	
