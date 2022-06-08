@@ -6,28 +6,31 @@
 -- Description : Exemplo de divisor de clock.
 -------------------------------------------------------------------
 
--- Bibliotecas e clásulas
-LIBRARY ieee;
-USE IEEE.STD_LOGIC_1164.ALL;
+-- bibliotecas e clásulas
+library ieee;
+use ieee.std_logic_1164.all;
 
--- Entidade e portas
-ENTITY divisor_clock IS
-    PORT (clk, ena: IN std_logic;
-          output: OUT std_logic);
-END ENTITY;
+-- entidade e portas
+entity divisor_clock is
+    generic (
+        constant MAX: natural := 5
+    );    
+    port (clk, ena: in std_logic;
+          output: out std_logic);
+end entity;
 
--- Arquitetura
-ARCHITECTURE rtl OF divisor_clock IS
-    constant max: NATURAL := 5;
-BEGIN
+-- arquitetura
+architecture rtl of divisor_clock is
+    
+begin
     p0: process(clk)
-        variable count: natural range 0 to max := 0;
+        variable count: natural range 0 to MAX := 0;
         variable temp: std_logic := '0';
     begin
         if (rising_edge(clk)) then
             if ena = '1' then
                 count := count + 1;
-                if (count = max) then
+                if (count = MAX) then
                     temp := not temp;
                     count := 0;
                 end if;           
@@ -35,4 +38,4 @@ BEGIN
         end if;    
         output <= temp;        
     end process;
-END ARCHITECTURE;
+end architecture;

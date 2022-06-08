@@ -94,6 +94,7 @@ begin
 		
 	-- counter reset
 	reset <= SW(0);
+	LEDR(0) <= reset;
 	
 	counter_process: process(clk_slow, reset)		
 	begin
@@ -118,7 +119,7 @@ begin
 			port map(
 				clk     => clk_fast,
 				addr    => counter_array(i),
-				we      => SW(5),
+				we      => '1',
 				data_in => (others => '0'),
 				q       => hex_array(i)
 			);

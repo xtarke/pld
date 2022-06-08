@@ -44,7 +44,6 @@ begin  -- inicio do corpo da arquitetura
     process(a) 
     begin
         transporte <= transport a after 20 ns;
-    end process;
-  
+    end process;  
 
 end architecture stimulus;

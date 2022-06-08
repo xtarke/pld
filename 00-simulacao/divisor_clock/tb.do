@@ -24,9 +24,11 @@ view wave
 # -label: nome da forma de onda
 add wave -radix binary  /clk
 add wave -radix binary  /ena
-add wave -radix binary  /output
+add wave -radix binary  /output_5
+add wave -radix binary  /output_10
 #Como mostrar sinais internos do processo
-add wave -radix dec /dut/p0/count
+add wave -radix dec /dut_5/p0/count
+add wave -radix dec /dut_10/p0/count
 
 
 #Simula até um 500ns
