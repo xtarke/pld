@@ -30,6 +30,8 @@ add wave -height 15 -divider "Entrada e saida"
 add wave -radix dec /x
 add wave -radix dec /y
 
+add wave -radix hex /dados_arquivo
+
 
 
 

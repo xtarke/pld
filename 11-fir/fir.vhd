@@ -31,7 +31,7 @@ architecture RTL of fir is
     type coeficientes is array (N-1 downto 0) of signed (M-1 downto 0);
     
     signal reg: registradores;
-    constant COEF: coeficientes := (x"01", x"02", x"03", x"04");
+    constant COEF: coeficientes := (x"01", x"01", x"01", x"01");
     
 begin
     
@@ -55,7 +55,7 @@ begin
         elsif rising_edge(clk) then
             acc:= COEF(0) * x;
             
-            for i in 1 to n-1 loop
+            for i in 1 to N-1 loop
                 sinal := acc(2*M - 1);
                 prod := COEF(i) * reg(N-1 - i);
                 acc := acc + prod;                
