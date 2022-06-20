@@ -29,6 +29,7 @@ add wave -radix dec /dut/reg
 add wave -height 15 -divider "Entrada e saida"
 add wave -radix dec /x
 add wave -radix dec /y
+add wave -radix dec /y_8bit
 
 add wave -radix hex /dados_arquivo
 
@@ -36,7 +37,7 @@ add wave -radix hex /dados_arquivo
 
 
 #Simula até um 500ns
-run 500ns
+run 45000ns
 
 wave zoomfull
 write wave wave.ps

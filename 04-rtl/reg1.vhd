@@ -14,6 +14,7 @@ architecture logic of reg1 is
 begin
   process (clk)
   begin
+
     -- Colocar reset aqui.
     -- Exemplo criado para demonstrar latência
     -- entre d e q    
@@ -22,5 +23,6 @@ begin
       b <= a;
       q <= b;
     end if;
-  end process;
+end process;
+
 end architecture logic;

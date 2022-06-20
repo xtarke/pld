@@ -28,6 +28,8 @@ add wave -radix binary -label irregular_uma_vez /x
 add wave -radix binary -label irregular_repete /y
 add wave -radix hex -label multi_bit /z
 
+add wave -radix binary -label juca /z
+
 #Simula até um 500ns
 run 500ns
 

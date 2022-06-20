@@ -14,7 +14,7 @@ use ieee.numeric_std.all;
 entity fir is
     generic (
         N: integer := 4;    --! Número de coeficientes
-        M: integer := 4     --! Número de bits das entradas e coeficientes
+        M: integer := 8     --! Número de bits das entradas e coeficientes
     );
 
     port(
@@ -22,7 +22,8 @@ entity fir is
         rst : in std_logic; --! Sinal de reset
 
         x: in signed(M-1 downto 0); --! Dado de entrada
-        y: out signed (2*M-1 downto 0)  --! Dado de saída  
+        y: out signed (2*M-1 downto 0);  --! Dado de saída  
+    	y_halfword: out signed(M-1 downto 0)
     );
 end entity fir;
 
@@ -67,7 +68,8 @@ begin
             end loop;    
             reg <= x & reg(N-2 downto 1);                            
         end if; 
-        y <= acc;       
+        y <= acc;
+ 	y_halfword <= shift_right(acc, 2)(7 downto 0);
     end process;
 
 end architecture RTL;
