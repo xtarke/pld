@@ -32,6 +32,7 @@ add wave -radix dec /y
 add wave -radix dec /y_8bit
 
 add wave -radix hex /dados_arquivo
+add wave /processo_dados_arquivo/contador
 
 
 

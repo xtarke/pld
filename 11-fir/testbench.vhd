@@ -16,7 +16,7 @@ use std.textio.all;
 
 entity testbench is
 
-	end entity testbench;
+end entity testbench;
 
 architecture RTL of testbench is
 
@@ -49,7 +49,7 @@ architecture RTL of testbench is
 		return RAM;
 	end function;
 
-	signal dados_arquivo : memory_t := InitRamFromFile("teste.hex");
+	signal dados_arquivo : memory_t := InitRamFromFile("teste440_2000.hex");
 
 	signal clk : std_logic;
 	signal rst : std_logic;
@@ -96,13 +96,17 @@ begin
     --    end process;
 
 	processo_dados_arquivo: process
+		variable contador : integer := 0;
 	begin
-		for i in 0 to dados_arquivo'length-1 loop
+		for i in dados_arquivo'range loop
 			x <= signed(dados_arquivo(i));
+			contador := contador + 1;
 			wait for 10 ns;
 		end loop;
+		
+		-- wait;
 
-		assert false report "End of simulation" severity error;
+		assert false report "End of simulation" severity failure;
 	end process;
 
 	process(clk, rst)
@@ -111,7 +115,6 @@ begin
 		variable minha_linha : line; 
 	begin
 		if rst = '1' then
-
 		elsif rising_edge(clk) then
 			hwrite(minha_linha, std_logic_vector(y_8bit));
 			writeline(arquivo_saida, minha_linha);	
