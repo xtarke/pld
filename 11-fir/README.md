@@ -7,7 +7,7 @@ Implementação baseada em [1] e arquivos de audio gerados em [2].
 Diagrama
 --------
 
-![Diagrama e RTL do filtro FIR](./latex/fir.pdf){#fig:fir}
+![Diagrama e RTL do filtro FIR](./latex/fir.svg){#fig:fir}
 
 Equação
 -------
