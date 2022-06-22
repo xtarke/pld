@@ -1,6 +1,3 @@
----
-title: Implementação filtro média móvel em VHDL
----
 
 Média móvel com quatro coeficientes
 ===================================
@@ -10,7 +7,7 @@ Implementação baseada em [1] e arquivos de audio gerados em [2].
 Diagrama
 --------
 
-![Diagrama e RTL do filtro FIR](fir.pdf){#fig:fir}
+![Diagrama e RTL do filtro FIR](./latex/fir.pdf){#fig:fir}
 
 Equação
 -------
