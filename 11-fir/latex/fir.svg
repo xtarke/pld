@@ -8,7 +8,7 @@
    width="599.48926"
    height="202.31468"
    viewBox="0 0 599.48926 202.31468"
-   sodipodi:docname="fir.pdf"
+   sodipodi:docname="fir.svg"
    inkscape:export-filename="/home/xtarke/Projects/_pld/11-fir/latex/fir.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
@@ -114,9 +114,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="2.8340791"
-     inkscape:cx="224.58794"
-     inkscape:cy="101.26746"
+     inkscape:zoom="1.4170396"
+     inkscape:cx="203.59347"
+     inkscape:cy="189.12669"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -126,7 +126,13 @@
      id="g183"
      inkscape:groupmode="layer"
      inkscape:label="fir"
-     transform="matrix(1.3333333,0,0,1.3333333,0,7.7245336e-6)"><g
+     transform="matrix(1.3333333,0,0,1.3333333,0,7.7245336e-6)"><rect
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.580164;stroke-dasharray:0.580164, 0.580164"
+       id="rect1027"
+       width="450.87851"
+       height="150.96585"
+       x="-0.90652895"
+       y="0.59464622" /><g
        id="g185"><path
          d="M 0,0.359 H 18.238 V 13.316 H 0 Z"
          style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
