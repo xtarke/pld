@@ -111,7 +111,6 @@ begin
 
 	process(clk, rst)
 		file arquivo_saida : TEXT open WRITE_MODE is "saida.hex";
-
 		variable minha_linha : line; 
 	begin
 		if rst = '1' then

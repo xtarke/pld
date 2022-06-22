@@ -1,6 +1,6 @@
 """
 Exemplo para validação do filtro média móvel em Python.
-    - teste.dec contém um tom em 400Hz e outro em 3.2kHz gerados pelo ocenaudio
+    - teste440_2000.hex contém um tom em 400Hz e outro em 2kHz gerados pelo ocenaudio
 
 Refs:
     - https://www.gaussianwaves.com/2010/11/moving-average-filter-ma-filter-2/
@@ -10,13 +10,24 @@ Refs:
 import numpy as np
 from scipy import signal
 
+
+def converte_hex_sinalizado(hexval):
+    """ Converte número hex (string) de 8 bits para inteiro com sinal """
+    bits = 8
+    val = int(hexval, 16)
+    if val & (1 << (bits-1)):
+        val -= 1 << bits
+    return val
+
 hexdata = []
 
-with open("teste.dec", "r",encoding="utf-8") as f:
+with open("teste440_2000.hex", "r",encoding="utf-8") as f:
     data = f.readlines()
 
     for i in data:
-        hexdata.append(int((i.replace('\n',''))))
+        hex_string = i.replace('\n','').replace('t','')
+        hexdata.append(converte_hex_sinalizado(hex_string))
+
 
 L=4                     # L-point filter
 b = (np.ones(L))/L      # numerator co-effs of filter transfer function
