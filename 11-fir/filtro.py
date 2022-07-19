@@ -9,6 +9,8 @@ Refs:
 
 import numpy as np
 from scipy import signal
+import matplotlib.pyplot as plt
+# import scipy.signal as sc
 
 
 def converte_hex_sinalizado(hexval):
@@ -34,6 +36,13 @@ b = (np.ones(L))/L      # numerator co-effs of filter transfer function
 a = np.ones(1)          # denominator co-effs of filter transfer function
 y = signal.convolve(hexdata,b) # filter output using convolution
 # y = signal.lfilter(b,a,hexdata) #filter output using lfilter function
+
+
+# Gera a resposta em frequência do filtro
+ordem=4
+[w,h]=signal.freqz(1/ordem*np.ones(ordem), 1, fs=8000)
+plt.plot(w,20*np.log10(abs(h)));plt.show()
+
 
 with open('filtro_python.dec','w', encoding="utf-8") as f:
     for i in y:
