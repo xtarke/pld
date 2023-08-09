@@ -10,43 +10,52 @@
 library ieee;
 use ieee.std_logic_1164.all;
 -------------------------------------
-entity testbench is
-end entity testbench;
+entity testbench_div_cmp is
+end entity testbench_div_cmp;
 ------------------------------
 
-architecture stimulus of testbench is
+architecture stimulus of testbench_div_cmp is
+
+    component divisor_clock is
+        port (clk, ena: IN std_logic;
+          output: OUT std_logic);
+    end component;
+
+
 
     -- declaração de sinais
-    signal clk : std_logic := '0';
-    signal ena : std_logic := '0';
-    signal output : std_logic;
+    signal clk_tb : std_logic;
+    signal ena_tb : std_logic;
+    signal output_tb : std_logic;
 
 
 begin  -- inicio do corpo da arquitetura
 
     -- instância de divisor_clock com nome dut, pode haver 
     -- quantas mais do que uma
-    dut: entity work.divisor_clock
-    	port map(
-    		clk    => clk,
-    		ena    => ena,
-    		output => output
-    	);
+   dut: divisor_clock
+    port map (
+            clk => clk_tb,
+            ena => ena_tb,
+            output => output_tb
+    );
+
     	
     -- gera um clok
     process
     begin
+        clk_tb <= '0';
         wait for 10 ns;
-        clk <= '0';
+        clk_tb <= '1';
         wait for 10 ns;
-        clk <= '1';    
     end process;
     
     --gera enable
     process
     begin
+        ena_tb <= '0';
         wait for 60 ns;
-        ena <= '1';           
+        ena_tb <= '1';
         wait;
     end process; 
 

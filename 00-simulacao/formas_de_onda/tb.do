@@ -14,7 +14,7 @@ vlib work
 vcom testbench.vhd
 
 #Simula
-vsim -t ns work.testbench
+vsim -voptargs="+acc" -t ns work.testbench
 
 #Mosta forma de onda
 view wave

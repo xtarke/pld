@@ -34,8 +34,8 @@ with open("teste440_2000.hex", "r",encoding="utf-8") as f:
 L=4                     # L-point filter
 b = (np.ones(L))/L      # numerator co-effs of filter transfer function
 a = np.ones(1)          # denominator co-effs of filter transfer function
-y = signal.convolve(hexdata,b) # filter output using convolution
-# y = signal.lfilter(b,a,hexdata) #filter output using lfilter function
+# y = signal.convolve(hexdata,b) # filter output using convolution
+y = signal.lfilter(b,a,hexdata) #filter output using lfilter function
 
 
 # Gera a resposta em frequência do filtro

@@ -10,11 +10,11 @@
 library ieee;
 use ieee.std_logic_1164.all;
 -------------------------------------
-entity testbench is
-end entity testbench;
+entity testbench_wave is
+end entity testbench_wave;
 ------------------------------
 
-architecture stimulus of testbench is
+architecture stimulus of testbench_wave is
 
     -- declaração de sinais
     signal clk : std_logic;

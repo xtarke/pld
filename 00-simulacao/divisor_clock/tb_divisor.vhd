@@ -10,15 +10,15 @@
 library ieee;
 use ieee.std_logic_1164.all;
 -------------------------------------
-entity testbench is
-end entity testbench;
+entity testbench_div is
+end entity testbench_div;
 ------------------------------
 
-architecture stimulus of testbench is
+architecture stimulus of testbench_div is
 
     -- declaração de sinais
-    signal clk : std_logic;
-    signal ena : std_logic;
+    signal clk_tb : std_logic;
+    signal ena_tb : std_logic;
     signal output_10 : std_logic;
     signal output_5 : std_logic;
 
@@ -32,8 +32,8 @@ begin  -- inicio do corpo da arquitetura
             MAX => 5
         )
         port map(
-            clk    => clk,
-            ena    => ena,
+            clk    => clk_tb,
+            ena    => ena_tb,
             output => output_5
         );
 
@@ -42,8 +42,8 @@ begin  -- inicio do corpo da arquitetura
             MAX => 10
         )
         port map(
-            clk    => clk,
-            ena    => ena,
+            clk    => clk_tb,
+            ena    => ena_tb,
             output => output_10
         );
 
@@ -51,18 +51,18 @@ begin  -- inicio do corpo da arquitetura
     -- gera um clok
     process
     begin
-        clk <= '0';
+        clk_tb <= '0';
         wait for 10 ns;
-        clk <= '1';
+        clk_tb <= '1';
         wait for 10 ns;
     end process;
 
     --gera enable
     process
     begin
-        ena <= '0';
+        ena_tb <= '0';
         wait for 60 ns;
-        ena <= '1';
+        ena_tb <= '1';
         wait;
     end process;
 

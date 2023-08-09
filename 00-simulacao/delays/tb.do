@@ -14,7 +14,7 @@ vlib work
 vcom tb_delays.vhd
 
 #Simula (work é o diretorio, testbench é o nome da entity)
-vsim -t ns work.testbench
+vsim -voptargs="+acc" -t ns work.testbench_dl
 
 #Mosta forma de onda
 view wave
