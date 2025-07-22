@@ -11,7 +11,7 @@
 vlib work
 
 #compila projeto: todos os aquivo. Ordem é importante
-vcom divisor_clock.vhd tb_divisor.vhd
+vcom adder.vhd divisor_clock.vhd tb_divisor.vhd
 
 #Simula (work é o diretorio, testbench é o nome da entity)
 vsim -voptargs="+acc" -t ns work.testbench_div_cmp
@@ -22,15 +22,22 @@ view wave
 #Adiciona ondas específicas
 # -radix: binary, hex, dec
 # -label: nome da forma de onda
-add wave -radix binary  /clk_tb
+add wave -label clk -radix binary  /clk_tb
 add wave -radix binary  /ena_tb
 add wave -radix binary  /output_tb
+add wave -radix binary  /output_novo
+
+add wave -radix uns /dataa
+add wave -radix uns /datab
+add wave -radix uns /sum
+
+
 #Como mostrar sinais internos do processo
 add wave -radix dec /dut/p0/count
 
 
 #Simula até um 500ns
-run 500ns
+run 380ns
 
 wave zoomfull
 write wave wave.ps

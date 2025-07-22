@@ -12,7 +12,7 @@ USE IEEE.STD_LOGIC_1164.ALL;
 
 -- Entidade e portas
 ENTITY divisor_clock IS
-    PORT (clk, ena: IN std_logic;
+    PORT (clk, rst, ena: IN std_logic;
           output: OUT std_logic);
 END ENTITY;
 
@@ -24,7 +24,10 @@ BEGIN
         variable count: natural range 0 to max := 0;
         variable temp: std_logic := '0';
     begin
-        if (rising_edge(clk)) then
+        if rst = '1' then
+            count := 0;
+            temp := '1';
+        elsif (rising_edge(clk)) then
             if ena = '1' then
                 count := count + 1;
                 if (count = max) then
